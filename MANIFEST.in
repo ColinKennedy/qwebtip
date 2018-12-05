@@ -3,6 +3,8 @@ graft src
 graft ci
 graft tests
 
+exclude .pydocstylerc
+
 include .bumpversion.cfg
 include .coveragerc
 include .cookiecutterrc
