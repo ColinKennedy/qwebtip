@@ -12,7 +12,7 @@ Overview
     * - tests
       - | |travis| |appveyor| |requires|
         | |codecov|
-        | |landscape| |scrutinizer| |codacy|
+        | |landscape| |codacy|
     * - package
       - | |version| |wheel| |supported-versions| |supported-implementations|
         | |commits-since|
@@ -65,10 +65,6 @@ Overview
 .. |supported-implementations| image:: https://img.shields.io/pypi/implementation/qwebtip.svg
     :alt: Supported implementations
     :target: https://pypi.python.org/pypi/qwebtip
-
-.. |scrutinizer| image:: https://img.shields.io/scrutinizer/g/ColinKennedy/qwebtip/master.svg
-    :alt: Scrutinizer Status
-    :target: https://scrutinizer-ci.com/g/ColinKennedy/qwebtip/
 
 
 .. end-badges
