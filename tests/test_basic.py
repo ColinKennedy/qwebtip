@@ -17,16 +17,21 @@ from Qt import QtGui
 APPLICATION = QtWidgets.QApplication([])
 
 
-class URL(unittest.TestCase):
+class Behavior(unittest.TestCase):
+
+    '''All tests for creating a general browser widget.'''
+
     def setUp(self):
+        '''Since we make edits to certain classes, store their unbound methods.'''
         self.backups = {'QLabel.eventFilter': QtWidgets.QLabel.eventFilter}
 
     def tearDown(self):
+        '''Restore any modified classes to their default state.'''
         QtWidgets.QLabel.eventFilter = self.backups['QLabel.eventFilter']
 
     @staticmethod
     def _make_fake_tooltip_event():
-
+        '''`QtGui.QHelpEvent`: Make a fake object to use for a tooltip.'''
         fake_relative_position = QtCore.QPoint(40, 10)
         fake_global_position = QtCore.QPoint(400, 100)
 
@@ -36,6 +41,7 @@ class URL(unittest.TestCase):
         return event
 
     def test_apply_to_widget(self):
+        '''Check that adding our tooltip onto a widget works.'''
         widget = QtWidgets.QLabel('some widget')
         url = 'http://google.com'
         qweburltip.override_tool_tip(widget, url)
@@ -46,7 +52,9 @@ class URL(unittest.TestCase):
         self.assertTrue(result)
 
     def test_parent_event_filter(self):
-        def acknowledgement(self, obj, event, data=None):  # pylint: disable=unused-argument
+        '''Check that the original widget's parent class still calls `eventFilter`.'''
+        def acknowledgement(self, obj, event, data):  # pylint: disable=unused-argument
+            '''Check if this function has been run, using `data`.'''
             data['ran'] = True
             return False
 
