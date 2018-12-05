@@ -138,6 +138,7 @@ class UnknownSelector(_BaseSelector):
 
 
 class UnknownHeaderSelector(UnknownSelector):
+
     '''A class that helps scrolls a browser for an undefined CSS selector.
 
     This class is useful if you expect your documentation to change.
