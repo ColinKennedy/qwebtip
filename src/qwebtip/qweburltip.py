@@ -29,7 +29,7 @@ _DEFAULT_WIDTH = 400
 _DEFAULT_HEIGHT = 300
 
 
-class SelfClosingBrowser(QtWebKit.QWebView):
+class SelfClosingBrowser(QtWebKit.QWebView):  # pylint: disable=too-few-public-methods
 
     '''Create a QWebView that closes itself when the cursor moves away from it.'''
 
@@ -46,7 +46,7 @@ class SelfClosingBrowser(QtWebKit.QWebView):
         super(SelfClosingBrowser, self).__init__(parent=parent)
         self.installEventFilter(self)
 
-    def eventFilter(self, obj, event):
+    def eventFilter(self, obj, event):  # pylint: disable=invalid-name,unused-argument
         '''bool: Close this instance if the user moved their cursor off of it.'''
         if event.type() == QtCore.QEvent.Leave:
             self.close()
@@ -94,7 +94,7 @@ def make_browser(
     return browser
 
 
-def event_filter(descriptor, width, height, creator, obj, event):
+def event_filter(descriptor, size, creator, obj, event):
     '''When a user requests a tooltip, show a browser window instead.
 
     Important:
@@ -103,10 +103,8 @@ def event_filter(descriptor, width, height, creator, obj, event):
     Args:
         descriptor (`element_selector._BaseSelector`):
             An object that initializes the browser to a particular start position.
-        width (int):
-            How wide the created browser will be.
-        height (int):
-            How tall the created browser will be.
+        size (tuple[int, int]):
+            How wide and tall the created browser will be.
         creator (`element_selector._BaseSelector`):
             The object that controls the starting scroll position of the
             created browser widget, along with any other settings.
@@ -126,6 +124,7 @@ def event_filter(descriptor, width, height, creator, obj, event):
     if event.type() != QtCore.QEvent.ToolTip:
         return False
 
+    width, height = size
     position = obj.mapToGlobal(event.pos())
 
     # Move the tooltip just a tiny bit inside of the user's cursor.
@@ -177,4 +176,5 @@ def override_tool_tip(
     if isinstance(descriptor, six.string_types):
         descriptor = element_selector.Link(descriptor)
 
-    widget.eventFilter = functools.partial(event_filter, descriptor, width, height, creator)
+    widget.eventFilter = functools.partial(
+        event_filter, descriptor, (width, height), creator)

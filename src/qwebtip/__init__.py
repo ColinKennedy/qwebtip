@@ -20,7 +20,7 @@ import Qt
 
 
 try:
-    __QT_MODULE = __import__(Qt.__binding__)
+    __QT_MODULE = __import__(Qt.__binding__)  # pylint: disable=no-member
 except ImportError:
     raise EnvironmentError('You must install some Qt library to use this module')
 
@@ -32,8 +32,8 @@ __MODULE = six.MovedModule(
 six.add_move(__MODULE)
 
 try:
-    from six.moves import QtWebKit as __QtWebKit
-    __QtWebKit.QWebView
+    from six.moves import QtWebKit as __QtWebKit  # pylint: disable=ungrouped-imports
+    _ = __QtWebKit.QWebView
 except (ImportError, AttributeError):
     raise EnvironmentError(
-        'Qt binding "{Qt.__binding__}" does not have QtWebKit included.'.format(Qt=Qt))
+        'Qt binding "{binding}" does not have QtWebKit included.'.format(binding=Qt.__binding__))  # pylint: disable=no-member

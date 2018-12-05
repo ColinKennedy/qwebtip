@@ -25,7 +25,8 @@ class _BaseSelector(object):
         super(_BaseSelector, self).__init__()
         self.url = url
 
-    def _move_to_selector(self, browser, selectors, text, *args):
+    @staticmethod
+    def move_to_selector(browser, selectors, text, *args):  # pylint: disable=unused-argument
         '''Find the location of a selector with `text` and position browser to it.
 
         This method will find the first matching selector for some `text`.
@@ -82,7 +83,7 @@ class Link(_BaseSelector):
             return
 
         post_move = functools.partial(
-            self._move_to_selector,
+            self.move_to_selector,
             browser,
             ('a', ),
             '{data.fragment}'.format(data=data),
@@ -127,7 +128,7 @@ class UnknownSelector(_BaseSelector):
 
         '''
         post_move = functools.partial(
-            self._move_to_selector,
+            self.move_to_selector,
             browser,
             self.selectors,
             self.text,

@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
+
+'''Install qwebtip to the user's computer.'''
+
 from __future__ import absolute_import
 from __future__ import print_function
 
@@ -16,11 +19,12 @@ from setuptools import setup
 
 
 def read(*names, **kwargs):
+    '''Get the contents of all of the file `names`.'''
     with io.open(
         join(dirname(__file__), *names),
         encoding=kwargs.get('encoding', 'utf8')
-    ) as fh:
-        return fh.read()
+    ) as file_:
+        return file_.read()
 
 
 setup(
