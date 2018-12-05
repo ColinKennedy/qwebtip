@@ -1,9 +1,9 @@
-graft docs
 graft src
 graft ci
 graft tests
 
 exclude .pydocstylerc
+exclude docs/spelling_wordlist.txt
 
 include .bumpversion.cfg
 include .coveragerc

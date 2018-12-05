@@ -4,14 +4,14 @@
 '''A series of tests to make sure our classes and functions work correctly.'''
 
 # IMPORT STANDARD LIBRARIES
-import functools
 import unittest
+import functools
 
 # IMPORT THIRD-PARTY LIBRARIES
-from qwebtip import qweburltip
-from Qt import QtWidgets
-from Qt import QtCore
 from Qt import QtGui
+from Qt import QtCore
+from Qt import QtWidgets
+from qwebtip import qweburltip
 
 
 APPLICATION = QtWidgets.QApplication([])
