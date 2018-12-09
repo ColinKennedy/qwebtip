@@ -31,9 +31,9 @@ Overview
     :alt: PyPI Package latest release
     :target: https://pypi.python.org/pypi/qwebtip
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/ColinKennedy/qwebtip/v0.1dev.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/ColinKennedy/qwebtip/v0.1.0.svg
     :alt: Commits since latest release
-    :target: https://github.com/ColinKennedy/qwebtip/compare/v0.1dev...master
+    :target: https://github.com/ColinKennedy/qwebtip/compare/v0.1.0...master
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/qwebtip.svg
     :alt: PyPI Wheel
