@@ -7,18 +7,12 @@ Overview
 .. list-table::
     :stub-columns: 1
 
-    * - docs
-      - |docs|
     * - tests
       - | |requires| |codecov|
         | |codacy|
     * - package
       - | |version| |wheel| |supported-versions| |supported-implementations|
         | |commits-since|
-
-.. |docs| image:: https://readthedocs.org/projects/qwebtip/badge/?style=flat
-    :target: https://readthedocs.org/projects/qwebtip
-    :alt: Documentation Status
 
 
 .. |requires| image:: https://requires.io/github/ColinKennedy/qwebtip/requirements.svg?branch=master
@@ -56,9 +50,16 @@ Overview
 
 .. end-badges
 
-A Qt package that lets you use web URLs as tooltips in Qt widgets
+A Qt package that lets you use web URLs as tooltips in Qt widgets.
 
 * Free software: BSD 2-Clause License
+
+
+Requires
+========
+
+PySide or PyQt4 with QtWebKit
+
 
 Installation
 ============
@@ -67,16 +68,73 @@ Installation
 
     pip install qwebtip
 
-Documentation
-=============
+
+How To Use
+==========
 
 
-https://qwebtip.readthedocs.io/
+Simply import qwebtip's main model, `qweburltip` and set it to override one of
+your widget's tooltips with some URL.
+
+```python
+from qwebtip import qweburltip
+
+url = 'http://pyqt.sourceforge.net/Docs/PyQt4/qwebframe.html'
+qweburltip.override_tool_tip(QtWidgets.QLabel('Some label'), url)
+```
+
+The next time you build your application and hover over that widget, a URL box
+will be displayed, instead.
 
 
-Development
-===========
+```python
+from qwebtip import qweburltip
 
-To run the all tests run::
+url = 'http://pyqt.sourceforge.net/Docs/PyQt4/qwebframe.html'
+qweburltip.override_tool_tip(QtWidgets.QLabel('Some label'), url)
+```
 
-    tox
+
+How To Use - Customizing
+========================
+
+
+Setting a custom tooltip size
+
+```python
+from qwebtip import qweburltip
+
+url = 'http://pyqt.sourceforge.net/Docs/PyQt4/qwebframe.html'
+qweburltip.override_tool_tip(
+   QtWidgets.QLabel('Some label'),
+   url,
+   width=100,
+   height=400,
+)
+```
+
+Opening the URL at a specific header section
+
+```python
+url = 'http://pyqt.sourceforge.net/Docs/PyQt4/qwebframe.html'
+qweburltip.override_tool_tip(
+   self.line_edit,
+   element_selector.UnknownHeaderSelector(
+       url,
+       'Method Documentation',
+   ),
+)
+```
+
+
+Disabling Caching
+=================
+
+Loaded webpages are cached so that successive loads can be kept fast.
+To disable caching, simply set the following environment variable.
+
+```bash
+export QWEBTIP_DISABLE_CACHING=1
+```
+
+This is useful for debugging but is not generally not recommended.
