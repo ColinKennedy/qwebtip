@@ -10,9 +10,8 @@ Overview
     * - docs
       - |docs|
     * - tests
-      - | |travis| |appveyor| |requires|
-        | |codecov|
-        | |landscape| |codacy|
+      - | |requires| |codecov|
+        | |codacy|
     * - package
       - | |version| |wheel| |supported-versions| |supported-implementations|
         | |commits-since|
@@ -22,14 +21,6 @@ Overview
     :alt: Documentation Status
 
 
-.. |travis| image:: https://travis-ci.org/ColinKennedy/qwebtip.svg?branch=master
-    :alt: Travis-CI Build Status
-    :target: https://travis-ci.org/ColinKennedy/qwebtip
-
-.. |appveyor| image:: https://ci.appveyor.com/api/projects/status/github/ColinKennedy/qwebtip?branch=master&svg=true
-    :alt: AppVeyor Build Status
-    :target: https://ci.appveyor.com/project/ColinKennedy/qwebtip
-
 .. |requires| image:: https://requires.io/github/ColinKennedy/qwebtip/requirements.svg?branch=master
     :alt: Requirements Status
     :target: https://requires.io/github/ColinKennedy/qwebtip/requirements/?branch=master
@@ -37,10 +28,6 @@ Overview
 .. |codecov| image:: https://codecov.io/github/ColinKennedy/qwebtip/coverage.svg?branch=master
     :alt: Coverage Status
     :target: https://codecov.io/github/ColinKennedy/qwebtip
-
-.. |landscape| image:: https://landscape.io/github/ColinKennedy/qwebtip/master/landscape.svg?style=flat
-    :target: https://landscape.io/github/ColinKennedy/qwebtip/master
-    :alt: Code Quality Status
 
 .. |codacy| image:: https://img.shields.io/codacy/REPLACE_WITH_PROJECT_ID.svg
     :target: https://www.codacy.com/app/ColinKennedy/qwebtip
