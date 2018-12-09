@@ -78,6 +78,7 @@ class Link(_BaseSelector):
 
         '''
         def load_top_of_page(browser, *args):  # pylint: disable=unused-argument
+            '''Set the webpage to load from the top of the page.'''
             browser.page().mainFrame().setScrollPosition(QtCore.QPoint(0, 0))
 
         # Note: The URL fragment is expected to of the form wwww.foo.com/whatever#bar
