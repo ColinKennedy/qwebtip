@@ -77,9 +77,17 @@ class Link(_BaseSelector):
                 The browser whose scroll position will be affected.
 
         '''
+        def load_top_of_page(browser, *args):  # pylint: disable=unused-argument
+            browser.page().mainFrame().setScrollPosition(QtCore.QPoint(0, 0))
+
+        # Note: The URL fragment is expected to of the form wwww.foo.com/whatever#bar
+        # where "wwww.foo.com/whatever" is the URL and "bar" is the fragment
+        # and the-scroll position on the page to go to
+        #
         data = urllib.parse.urlparse(self.get_url())
 
         if not data.fragment:
+            browser.loadFinished.connect(functools.partial(load_top_of_page, browser))
             return
 
         post_move = functools.partial(
