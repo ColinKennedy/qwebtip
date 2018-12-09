@@ -29,9 +29,9 @@ Overview
     :alt: Coverage Status
     :target: https://codecov.io/github/ColinKennedy/qwebtip
 
-.. |codacy| image:: https://img.shields.io/codacy/REPLACE_WITH_PROJECT_ID.svg
-    :target: https://www.codacy.com/app/ColinKennedy/qwebtip
-    :alt: Codacy Code Quality Status
+.. |codacy| image:: https://api.codacy.com/project/badge/Grade/7e73dd8eb05349b08006732e8152c22d
+    :target: https://app.codacy.com/app/ColinKennedy/qwebtip?utm_source=github.com&utm_medium=referral&utm_content=ColinKennedy/qwebtip&utm_campaign=Badge_Grade_Dashboard
+    :alt: Codacy Badge
 
 .. |version| image:: https://img.shields.io/pypi/v/qwebtip.svg
     :alt: PyPI Package latest release
