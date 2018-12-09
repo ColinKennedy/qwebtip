@@ -3,6 +3,9 @@
 
 '''A module that stores computed results so that they can be reused.'''
 
+# IMPORT STANDARD LIBRARIES
+import os
+
 
 # Reference: https://dbader.org/blog/python-memoization
 def memoize_function(function):
@@ -31,6 +34,11 @@ def memoize_function(function):
             The result of `function(*args)`.
 
         '''
+        disable_caching = os.getenv('QWEBTIP_DISABLE_CACHING', '0') == '1'
+        if disable_caching:
+            print('asdf', function, args)
+            return function(*args)
+
         if args in cache:
             return cache[args]
 
