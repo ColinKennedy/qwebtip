@@ -76,23 +76,16 @@ How To Use
 Simply import qwebtip's main model, `qweburltip` and set it to override one of
 your widget's tooltips with some URL.
 
-```python
-from qwebtip import qweburltip
-
-url = 'http://pyqt.sourceforge.net/Docs/PyQt4/qwebframe.html'
-qweburltip.override_tool_tip(QtWidgets.QLabel('Some label'), url)
-```
-
 The next time you build your application and hover over that widget, a URL box
 will be displayed, instead.
 
 
-```python
-from qwebtip import qweburltip
+.. code:: python
 
-url = 'http://pyqt.sourceforge.net/Docs/PyQt4/qwebframe.html'
-qweburltip.override_tool_tip(QtWidgets.QLabel('Some label'), url)
-```
+   from qwebtip import qweburltip
+
+   url = 'http://pyqt.sourceforge.net/Docs/PyQt4/qwebframe.html'
+   qweburltip.override_tool_tip(QtWidgets.QLabel('Some label'), url)
 
 
 How To Use - Customizing
@@ -101,30 +94,31 @@ How To Use - Customizing
 
 Setting a custom tooltip size
 
-```python
-from qwebtip import qweburltip
+.. code:: python
 
-url = 'http://pyqt.sourceforge.net/Docs/PyQt4/qwebframe.html'
-qweburltip.override_tool_tip(
-   QtWidgets.QLabel('Some label'),
-   url,
-   width=100,
-   height=400,
-)
-```
+   from qwebtip import qweburltip
+
+   url = 'http://pyqt.sourceforge.net/Docs/PyQt4/qwebframe.html'
+   qweburltip.override_tool_tip(
+      QtWidgets.QLabel('Some label'),
+      url,
+      width=100,
+      height=400,
+   )
 
 Opening the URL at a specific header section
 
-```python
-url = 'http://pyqt.sourceforge.net/Docs/PyQt4/qwebframe.html'
-qweburltip.override_tool_tip(
-   self.line_edit,
-   element_selector.UnknownHeaderSelector(
-       url,
-       'Method Documentation',
-   ),
-)
-```
+
+.. code:: python
+
+   url = 'http://pyqt.sourceforge.net/Docs/PyQt4/qwebframe.html'
+   qweburltip.override_tool_tip(
+      self.line_edit,
+      element_selector.UnknownHeaderSelector(
+          url,
+          'Method Documentation',
+      ),
+   )
 
 
 Disabling Caching
@@ -133,8 +127,9 @@ Disabling Caching
 Loaded webpages are cached so that successive loads can be kept fast.
 To disable caching, simply set the following environment variable.
 
-```bash
-export QWEBTIP_DISABLE_CACHING=1
-```
+
+.. code:: bash
+
+   export QWEBTIP_DISABLE_CACHING=1
 
 This is useful for debugging but is not generally not recommended.
