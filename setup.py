@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-'''Install qwebtip to the user's computer.'''
+"""Install qwebtip to the user's computer."""
 
 from __future__ import absolute_import
 from __future__ import print_function
@@ -19,53 +19,55 @@ from setuptools import setup
 
 
 def read(*names, **kwargs):
-    '''Get the contents of all of the file `names`.'''
+    """Get the contents of all of the file `names`."""
     with io.open(
-        join(dirname(__file__), *names),
-        encoding=kwargs.get('encoding', 'utf8')
+        join(dirname(__file__), *names), encoding=kwargs.get("encoding", "utf8")
     ) as file_:
         return file_.read()
 
 
 setup(
-    name='qwebtip',
-    version='0.1.0',
-    license='BSD 2-Clause License',
-    description='A Qt package that lets you use web URLs as tooltips in Qt widgets',
-    long_description='%s\n%s' % (
-        re.compile('^.. start-badges.*^.. end-badges', re.M | re.S).sub('', read('README.rst')),
-        re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
+    name="qwebtip",
+    version="0.1.0",
+    license="BSD 2-Clause License",
+    description="A Qt package that lets you use web URLs as tooltips in Qt widgets",
+    long_description="%s\n%s"
+    % (
+        re.compile("^.. start-badges.*^.. end-badges", re.M | re.S).sub(
+            "", read("README.rst")
+        ),
+        re.sub(":[a-z]+:`~?(.*?)`", r"``\1``", read("CHANGELOG.rst")),
     ),
-    author='Colin Kennedy',
-    author_email='colinvfx@gmail.com',
-    url='https://github.com/ColinKennedy/qwebtip',
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
-    py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
+    author="Colin Kennedy",
+    author_email="colinvfx@gmail.com",
+    url="https://github.com/ColinKennedy/qwebtip",
+    packages=find_packages("src"),
+    package_dir={"": "src"},
+    py_modules=[splitext(basename(path))[0] for path in glob("src/*.py")],
     include_package_data=True,
     zip_safe=False,
     classifiers=[
         # complete classifier list: http://pypi.python.org/pypi?%3Aaction=list_classifiers
-        'Development Status :: 5 - Production/Stable',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
-        'Operating System :: Unix',
-        'Operating System :: POSIX',
-        'Operating System :: Microsoft :: Windows',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy',
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: BSD License",
+        "Operating System :: Unix",
+        "Operating System :: POSIX",
+        "Operating System :: Microsoft :: Windows",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Programming Language :: Python :: Implementation :: PyPy",
         # uncomment if you test on these interpreters:
         # 'Programming Language :: Python :: Implementation :: IronPython',
         # 'Programming Language :: Python :: Implementation :: Jython',
         # 'Programming Language :: Python :: Implementation :: Stackless',
-        'Topic :: Utilities',
+        "Topic :: Utilities",
     ],
     keywords=[
         # eg: 'keyword1', 'keyword2', 'keyword3',

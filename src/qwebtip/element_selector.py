@@ -12,7 +12,6 @@ from Qt import QtCore
 
 
 class _BaseSelector(object):
-
     """Select some part of a URL and move the browser to that location."""
 
     def __init__(self, url):
@@ -63,7 +62,6 @@ class _BaseSelector(object):
 
 
 class Link(_BaseSelector):
-
     """A class that scrolls a browser to some clickable location."""
 
     def setup(self, browser):
@@ -98,7 +96,6 @@ class Link(_BaseSelector):
 
 
 class UnknownSelector(_BaseSelector):
-
     """A class that helps scrolls a browser for an undefined CSS selector.
 
     This class is useful if you expect your documentation to change.
@@ -140,7 +137,6 @@ class UnknownSelector(_BaseSelector):
 
 
 class UnknownHeaderSelector(UnknownSelector):
-
     """A class that helps scrolls a browser for an undefined CSS selector.
 
     This class is useful if you expect your documentation to change.

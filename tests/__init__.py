@@ -1,1 +1,1 @@
-'''All tests for `qwebtip`.'''
+"""All tests for `qwebtip`."""

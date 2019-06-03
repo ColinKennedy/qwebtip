@@ -29,7 +29,6 @@ _DEFAULT_HEIGHT = 300
 
 
 class SelfClosingBrowser(QtWebKit.QWebView):  # pylint: disable=too-few-public-methods
-
     """Create a QWebView that closes itself when the cursor moves away from it."""
 
     def __init__(self, parent=None):

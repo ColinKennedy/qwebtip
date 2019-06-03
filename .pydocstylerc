@@ -1,3 +1,0 @@
-[pydocstyle]
-inherit = false
-ignore = D300,D211,D213,D406,D407
