@@ -121,11 +121,11 @@ Disabling Caching
 =================
 
 Loaded webpages are cached so that successive loads can be kept fast.
-To disable caching, simply set the following environment variable.
+To disable caching, set this environment variable.
 
 
 .. code:: bash
 
    export QWEBTIP_DISABLE_CACHING=1
 
-This is useful for debugging but is not generally not recommended.
+This is useful for debugging but is not recommended.
