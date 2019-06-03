@@ -49,6 +49,6 @@ default_context:
     test_matrix_separate_coverage: 'no'
     test_runner:               'pytest'
     travis:                    'yes'
-    version:                   '0.1dev'
+    version:                   '0.1.0'
     website:                   'https://colinvfx.com'
     year:                      'now'
