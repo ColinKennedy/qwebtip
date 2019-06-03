@@ -54,7 +54,7 @@ A Qt package that lets you use web URLs as tooltips in Qt widgets.
 Requires
 ========
 
-PySide or PyQt4 with QtWebKit
+PySide or PyQt4 with QtWebKit included.
 
 
 Installation
@@ -69,11 +69,11 @@ How To Use
 ==========
 
 
-Simply import qwebtip's main model, `qweburltip` and set it to override one of
+Import qwebtip's main model, `qweburltip` and set it to override one of
 your widget's tooltips with some URL.
 
 The next time you build your application and hover over that widget, a URL box
-will be displayed, instead.
+is displayed with that URL, instead.
 
 
 .. code:: python
