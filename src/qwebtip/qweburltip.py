@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-'''An override which can make any `QtWidgets.QWidget` display a web-page as a tooltip.
+"""An override which can make any `QtWidgets.QWidget` display a web-page as a tooltip.
 
 Example:
     >>> import renderer
@@ -10,7 +10,7 @@ Example:
     >>> url = "http://pyqt.sourceforge.net/Docs/PyQt4/qwebframe.html"
     >>> renderer.override_tool_tip(label, url)
 
-'''
+"""
 
 # IMPORT STANDARD LIBRARIES
 import functools
@@ -21,9 +21,8 @@ from Qt import QtCore
 import six
 
 # IMPORT LOCAL LIBRARIES
-from . import element_selector
 from . import cache
-
+from . import element_selector
 
 _DEFAULT_WIDTH = 400
 _DEFAULT_HEIGHT = 300
@@ -31,10 +30,10 @@ _DEFAULT_HEIGHT = 300
 
 class SelfClosingBrowser(QtWebKit.QWebView):  # pylint: disable=too-few-public-methods
 
-    '''Create a QWebView that closes itself when the cursor moves away from it.'''
+    """Create a QWebView that closes itself when the cursor moves away from it."""
 
     def __init__(self, parent=None):
-        '''Set up this instance to check for a "Leave" event.
+        """Set up this instance to check for a "Leave" event.
 
         If the `QtCore.QEvent.Leave` event triggers, close this instance.
 
@@ -42,12 +41,12 @@ class SelfClosingBrowser(QtWebKit.QWebView):  # pylint: disable=too-few-public-m
             parent (`QtCore.QObject`, optional):
                 Qt-based associated object. Default is None.
 
-        '''
+        """
         super(SelfClosingBrowser, self).__init__(parent=parent)
         self.installEventFilter(self)
 
     def eventFilter(self, obj, event):  # pylint: disable=invalid-name,unused-argument
-        '''bool: Close this instance if the user moved their cursor off of it.'''
+        """bool: Close this instance if the user moved their cursor off of it."""
         if event.type() == QtCore.QEvent.Leave:
             self.close()
 
@@ -58,12 +57,9 @@ class SelfClosingBrowser(QtWebKit.QWebView):  # pylint: disable=too-few-public-m
 
 @cache.memoize_function
 def make_browser(
-        descriptor,
-        width=_DEFAULT_WIDTH,
-        height=_DEFAULT_HEIGHT,
-        creator=SelfClosingBrowser,
+    descriptor, width=_DEFAULT_WIDTH, height=_DEFAULT_HEIGHT, creator=SelfClosingBrowser
 ):
-    '''When a user requests a tooltip, show a browser window instead.
+    """When a user requests a tooltip, show a browser window instead.
 
     Important:
         This is meant to be used in-place of an instancemethod.
@@ -83,7 +79,7 @@ def make_browser(
         bool: If a tooltip browser was displayed. A bool is required by Qt or
               `eventFilter` will raise exceptions.
 
-    '''
+    """
     browser = creator()
     browser.setWindowFlags(QtCore.Qt.ToolTip)
     browser.resize(width, height)
@@ -95,7 +91,7 @@ def make_browser(
 
 
 def event_filter(descriptor, size, creator, obj, event):
-    '''When a user requests a tooltip, show a browser window instead.
+    """When a user requests a tooltip, show a browser window instead.
 
     Important:
         This is meant to be used in-place of an instancemethod.
@@ -118,7 +114,7 @@ def event_filter(descriptor, size, creator, obj, event):
         bool: If a tooltip browser was displayed. A bool is required by Qt or
               `eventFilter` will raise exceptions.
 
-    '''
+    """
     obj.__class__.eventFilter(obj, obj, event)  # Call the base-class `eventFilter`
 
     if event.type() != QtCore.QEvent.ToolTip:
@@ -144,13 +140,13 @@ def event_filter(descriptor, size, creator, obj, event):
 
 
 def override_tool_tip(
-        widget,
-        descriptor,
-        width=_DEFAULT_WIDTH,
-        height=_DEFAULT_HEIGHT,
-        creator=SelfClosingBrowser,
+    widget,
+    descriptor,
+    width=_DEFAULT_WIDTH,
+    height=_DEFAULT_HEIGHT,
+    creator=SelfClosingBrowser,
 ):
-    '''Change `widget` to display a browser tooltip.
+    """Change `widget` to display a browser tooltip.
 
     Important:
         This function will override the `eventFilter` method of `widget`.
@@ -172,9 +168,10 @@ def override_tool_tip(
         bool: If a tooltip browser was displayed. A bool is required by Qt or
               `eventFilter` will raise exceptions.
 
-    '''
+    """
     if isinstance(descriptor, six.string_types):
         descriptor = element_selector.Link(descriptor)
 
     widget.eventFilter = functools.partial(
-        event_filter, descriptor, (width, height), creator)
+        event_filter, descriptor, (width, height), creator
+    )
