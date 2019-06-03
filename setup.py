@@ -28,7 +28,7 @@ def read(*names, **kwargs):
 
 setup(
     name="qwebtip",
-    version="0.1.0",
+    version="0.2.0",
     license="BSD 2-Clause License",
     description="A Qt package that lets you use web URLs as tooltips in Qt widgets",
     long_description="%s\n%s"
