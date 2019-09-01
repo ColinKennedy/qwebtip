@@ -51,6 +51,8 @@ A Qt package that lets you use web URLs as tooltips in Qt widgets.
 * Free software: BSD 2-Clause License
 
 
+.. image :: https://user-images.githubusercontent.com/10103049/64070456-031b2180-cc15-11e9-91d5-4a5d06a10a2e.gif
+
 Requires
 ========
 
